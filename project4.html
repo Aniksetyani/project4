@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Bahasa Arab</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            color: white;
+            direction: rtl;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .word {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .word {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📚 تعلم المفردات العربية 📚</h2>
+        <div class="word" id="word">اضغط الزر لرؤية الكلمة</div>
+        <button onclick="showWord()">🎲 عرض كلمة عشوائية</button>
+    </div>
+
+    <script>
+        const words = [
+            "🌞 شمس (Matahari)",
+            "🌙 قمر (Bulan)",
+            "📖 كتاب (Buku)",
+            "🏫 مدرسة (Sekolah)",
+            "💧 ماء (Air)"
+        ];
+
+        function showWord() {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            const wordElement = document.getElementById("word");
+            wordElement.innerText = words[randomIndex];
+            wordElement.style.animation = 'none';
+            setTimeout(() => {
+                wordElement.style.animation = 'fadeIn 0.5s ease-in-out';
+            }, 10);
+        }
+    </script>
+</body>
+</html>
